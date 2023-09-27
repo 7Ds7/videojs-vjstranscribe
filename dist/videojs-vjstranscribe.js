@@ -1,3 +1,10 @@
+/*!
+* videojs-vjstranscribe
+* @author 7Ds7
+* @version 1.0.1
+* @url https://github.com/7Ds7/videojs-vjstranscribe.git
+* Copyright 2023 GPLv3 licensed.
+*/
 (() => {
   // src/videojs-vjstranscribe-selector.js
   var VjsTranscribeSelector = class {

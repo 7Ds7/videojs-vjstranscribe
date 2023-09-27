@@ -1,6 +1,6 @@
 {
   "name": "videojs-vjstranscribe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transcribe from text tracks",
   "main": "src/videojs-vjstranscribe.js",
   "scripts": {
@@ -13,14 +13,14 @@
     "url": "https://github.com/7Ds7/videojs-vjstranscribe.git"
   },
   "keywords": [
-    "videojs",
     "videojs-plugin",
-    "videojs-vjstranscribe",
     "transcribe",
-    "transcript"
+    "transcript",
+    "videojs",
+    "videojs-vjstranscribe"
   ],
   "author": "7Ds7",
-  "license": "MIT",
+  "license": "GPLv3",
   "dependencies": {
     "video.js": "^8.5"
   },

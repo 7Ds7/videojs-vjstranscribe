@@ -3,7 +3,7 @@
 Creates searchable transcripts from text tracks
 
 ## Demo
-[TODO DEMO LINK]
+https://codepen.io/binaryunit/pen/MWZGRej
 
 or
 
@@ -21,9 +21,9 @@ also available trough  ```npm install videojs-vjstranscribe```
 
 ```
 let player = videojs(document.querySelector('.video-js'), {
-	plugins: {
-			vjstranscribe: {}
-	}
+  plugins: {
+    vjstranscribe: {}
+  }
 });
 ```
 
@@ -33,23 +33,23 @@ let player = videojs(document.querySelector('.video-js'), {
 
 ```
 let player = videojs(document.querySelector('.video-js'), {
-	plugins: {
-			vjstranscribe: {
-			customClass: 'vjs-transcribe',
-			widgetId: 'vjs-transcribe',
-			selector: true,
-			selectorId: 'vjs-transcribe-selector',
-			download: true,
-			copy: true,
-			downloadId: 'vjs-transcribe-download',
-			search: true,
-			searchId: 'vjs-transcribe-search',
-			pip: true,
-			pipId: 'vjs-transcribe-pip',
-			mode: 'line',
-			disablecc: true
-			}
-	}
+  plugins: {
+    vjstranscribe: {
+    customClass: 'vjs-transcribe',
+    widgetId: 'vjs-transcribe',
+    selector: true,
+    selectorId: 'vjs-transcribe-selector',
+    download: true,
+    copy: true,
+    downloadId: 'vjs-transcribe-download',
+    search: true,
+    searchId: 'vjs-transcribe-search',
+    pip: true,
+    pipId: 'vjs-transcribe-pip',
+    mode: 'line',
+    disablecc: true
+    }
+  }
 });
 ```
 
