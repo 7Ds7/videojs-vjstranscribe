@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="//vjs.zencdn.net/8.5.2/video-js.min.css" rel="stylesheet">
+  <script src="//vjs.zencdn.net/8.5.2/video.min.js"></script>
+  <script src="../dist/videojs-vjstranscribe.js"></script>
+  <link href="../dist/videojs-vjstranscribe.css" rel="stylesheet">
+  <style>
+    .hide {
+      display: none;
+    }
+
+    .flex {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .demo-transcribe {
+      justify-content: space-between;
+    }
+
+    @media screen and (max-width: 1023px) {
+      
+      body  > .flex {
+        display: block;
+      }
+
+      .demo-transcribe {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    <div>
+      <video id="vjstranscribe-demo" class="video-js vjs" controls preload="auto" width="640"
+        height="264" poster="http://vjs.zencdn.net/v/oceans.png">
+        <source src="https://ia600209.us.archive.org/20/items/ElephantsDream/ed_1024_512kb.mp4" type='video/mp4'>
+        <track kind="subtitles" src="assets/captions.en.vtt" srclang="en" label="English" default="true">
+        </track>
+        <track kind="subtitles" src="assets/captions.sv.vtt" srclang="sv" label="Swedish" default="true">
+        </track>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+    </div>
+    <div>
+      <button id="demo-button">You can also click here to enable transcribe</button>
+      <div class="demo-transcribe flex">
+        <div id="vjs-transcribe-selector"></div>
+        <div id="vjs-transcribe-search"></div>
+        <div id="vjs-transcribe-download"></div>
+      </div>
+      <div id="vjs-transcribe"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var player = videojs(document.querySelector('.video-js'), {
+      plugins: {
+        vjstranscribe: {
+          pip: false,
+        }
+      }
+    });
+
+    document.getElementById('demo-button').addEventListener('click', function(e) {
+      document.querySelector('.vjs-transcribe .vjs-transcribe-btn').click();
+    });
+
+    window.addEventListener('vjstranscribe.on', function(e) {
+      document.getElementById('demo-button').classList.add('hide');
+    });
+
+    window.addEventListener('vjstranscribe.off', function(e) {
+      document.getElementById('demo-button').classList.remove('hide');
+    });
+  </script>
+
+</body>
+
+</html>

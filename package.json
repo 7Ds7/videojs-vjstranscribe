@@ -1,0 +1,30 @@
+{
+  "name": "videojs-vjstranscribe",
+  "version": "1.0.0",
+  "description": "Transcribe from text tracks",
+  "main": "src/videojs-vjstranscribe.js",
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "build:dev": "node esbuild_dev.mjs",
+    "demo": "python3 -m http.server 9001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7Ds7/videojs-vjstranscribe.git"
+  },
+  "keywords": [
+    "videojs",
+    "videojs-plugin",
+    "videojs-vjstranscribe",
+    "transcribe",
+    "transcript"
+  ],
+  "author": "7Ds7",
+  "license": "MIT",
+  "dependencies": {
+    "video.js": "^8.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.2"
+  }
+}
