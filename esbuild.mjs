@@ -1,5 +1,4 @@
 import * as esbuild from 'esbuild';
-import headerPlugin from 'esbuild-header';
 import process from 'node:process'
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,6 +14,7 @@ await esbuild.build({
         outdir: "dist",
         bundle: true,
         platform: "browser",
+        minify: true,
         banner: {
                 js: `/*!
 * ${pkg.name}
