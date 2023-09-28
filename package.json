@@ -1,7 +1,7 @@
 {
   "name": "videojs-vjstranscribe",
   "version": "1.0.1",
-  "description": "Transcribe from text tracks",
+  "description": "Creates searchable transcripts from text tracks",
   "main": "src/videojs-vjstranscribe.js",
   "scripts": {
     "build": "node esbuild.mjs",
