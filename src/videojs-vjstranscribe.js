@@ -116,7 +116,7 @@ class VjsTranscribe extends Plugin {
     let active = this.getActiveTrack();
     const that = this;
     this.activated = true;
-    this.totalTracks = this.player.textTracks().length;
+    this.totalTracks = this.getTextTracks().length;
 
     if (!active.activeCues) {
       window.setTimeout(function () {
