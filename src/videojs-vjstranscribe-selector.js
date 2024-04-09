@@ -16,13 +16,13 @@ export default class VjsTranscribeSelector {
     let $selector = document.createElement('select');
     $selector.setAttribute('id', this.selectorId);
 
-    for (let i = 0; i < this.plugin.player.textTracks().tracks_.length; i++) {
+    for (let i = 0; i < this.plugin.getTextTracks().length; i++) {
       let $option = document.createElement('option');
-      $option.value = this.plugin.player.textTracks().tracks_[i].language;
-      if (this.activeTrack === this.plugin.player.textTracks().tracks_[i]) {
+      $option.value = this.plugin.getTextTracks()[i].language;
+      if (this.activeTrack === this.plugin.getTextTracks()[i]) {
         $option.setAttribute('selected', 'selected');
       }
-      $option.textContent = this.plugin.player.textTracks().tracks_[i].label || this.plugin.player.textTracks().tracks_[i].language;
+      $option.textContent = this.plugin.getTextTracks()[i].label || this.plugin.getTextTracks()[i].language;
       $selector.appendChild($option);
     }
 
@@ -38,8 +38,8 @@ export default class VjsTranscribeSelector {
 
   // Handler event as well as method e = event or track
   changeSelector(e) {
-    for (let i = 0; i < this.plugin.player.textTracks().tracks_.length; i++) {
-      let track = this.plugin.player.textTracks().tracks_[i];
+    for (let i = 0; i < this.plugin.getTextTracks().length; i++) {
+      let track = this.plugin.getTextTracks()[i];
       document.getElementById(this.selectorId).querySelector(`option[value=${track.language}]`).removeAttribute('selected');
       track.mode = "disabled";
       if ((e.target && track.language === e.target.value) || (e.language && track.language === e.language)) {
