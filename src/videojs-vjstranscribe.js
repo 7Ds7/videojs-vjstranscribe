@@ -91,25 +91,32 @@ class VjsTranscribe extends Plugin {
 
   }
 
+  getTextTracks() {
+    let tracks = this.player.textTracks().tracks_;
+
+    return tracks.filter((track) => {
+      return track.kind !== 'metadata';
+    })
+  }
+
   getActiveTrack() {
     let i, track;
-    for (i = 0; i < this.player.textTracks().tracks_.length; i++) {
-      track = this.player.textTracks().tracks_[i];
+    for (i = 0; i < this.getTextTracks().length; i++) {
+      track = this.getTextTracks()[i];
       if (track.mode === 'showing') {
         this.activeTrack = track;
       }
     }
 
     // fallback to first track even if it is off
-    return this.activeTrack || this.player.textTracks().tracks_[0];
+    return this.activeTrack || this.getTextTracks()[0];
   }
-
 
   createTranscript() {
     let active = this.getActiveTrack();
     const that = this;
     this.activated = true;
-    this.totalTracks = this.player.textTracks().length;
+    this.totalTracks = this.getTextTracks().length;
 
     if (!active.activeCues) {
       window.setTimeout(function () {
