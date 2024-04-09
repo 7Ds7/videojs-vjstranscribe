@@ -101,7 +101,7 @@ class VjsTranscribe extends Plugin {
 
   getActiveTrack() {
     let i, track;
-    for (i = 0; i < this.getTextTracks.length; i++) {
+    for (i = 0; i < this.getTextTracks().length; i++) {
       track = this.getTextTracks()[i];
       if (track.mode === 'showing') {
         this.activeTrack = track;
