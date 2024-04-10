@@ -42,13 +42,33 @@ export default class VjsTranscribeWidget {
     document.getElementById(this.widgetId).appendChild(this.$body);
   }
 
+  formatDuration(secondsFloat) {
+    // Convert float to integer seconds.
+    let totalSeconds = Math.floor(secondsFloat);
+
+    // Calculate hours, minutes, and seconds.
+    let hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600; // Remaining seconds after extracting hours.
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    // Format minutes and seconds to always be two digits.
+    let formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    let formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+    // Construct duration string based on whether hours are present.
+    return hours > 0
+        ? `${hours}:${formattedMinutes}:${formattedSeconds}`
+        : `${formattedMinutes}:${formattedSeconds}`;
+  }
+
   createLine(cue) {
     let line = document.createElement('div');
     let timestamp = document.createElement('span');
     let text = document.createElement('span');
     line.setAttribute('data-begin', cue.startTime);
     line.classList.add('vjs-transcribe-cueline')
-    timestamp.textContent =  new Date(1000 * cue.startTime).toISOString().substr(11, 8).replace(/^[0:]+/, "");
+    timestamp.textContent = this.formatDuration(cue.startTime);
     timestamp.classList.add('vjs-transcribe-cuetimestamp');
     text.innerHTML = this.plugin.parseTags(cue.text);
     line.appendChild(timestamp);
