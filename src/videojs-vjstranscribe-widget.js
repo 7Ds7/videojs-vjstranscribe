@@ -47,8 +47,8 @@ export default class VjsTranscribeWidget {
     let timestamp = document.createElement('span');
     let text = document.createElement('span');
     line.setAttribute('data-begin', cue.startTime);
-    line.classList.add('vjs-transcribe-cueline')
-    timestamp.textContent =  new Date(1000 * cue.startTime).toISOString().substr(11, 8).replace(/^[0:]+/, "");
+    line.classList.add('vjs-transcribe-cueline');
+    timestamp.textContent = new Date(1000 * cue.startTime).toISOString().substr(11, 8).replace(/^(00:0)+|^(00:)+|(0)/, '');
     timestamp.classList.add('vjs-transcribe-cuetimestamp');
     text.innerHTML = this.plugin.parseTags(cue.text);
     line.appendChild(timestamp);
